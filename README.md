@@ -19,16 +19,22 @@ E-commerce founders are experts at selling, not finance. They are "revenue rich,
 
 TaxMan is a conversational AI that bridges the gap. We create a seamless, multi-channel experience that starts with an empathetic phone call and transitions to a simple web interface for data connection, all in real-time. Our mission is to build immediate trust by demonstrating our capability to understand the user's business context instantly, leading to a live, data-driven valuation and a glimpse into transformative tax strategies like **Qualified Small Business Stock (QSBS)**.
 
-### The "Real-Time Data Sync" Experience
+## 🔄 The "Real-Time Data Sync" Experience
 
-This is the core "magic moment" of our platform:
+<div align="center">
 
-1.  **📞 The Call:** A founder calls TaxMan at **+1 978 829 6264** (or **+1 978 TAX-MANG**) and speaks with our empathetic AI agent.
-2.  **📧 The Link:** The AI understands their intent to sell and sends a secure profile link to their email (using **Resend**).
-3.  **🔗 The Sync:** The founder opens the link, clicks "Login with Amazon/TikTok," which syncs their (mocked) financial data with our backend.
-4.  **🤖 The Awareness:** Instantly, the AI on the live phone call acknowledges the data sync: *"Okay Mark, I see the connection was successful. I'm pulling in your key metrics now..."*
-5.  **💰 The Valuation:** With real data, the AI provides a broker-quality business valuation by querying the Empire Flippers API in real-time.
-6.  **✨ The Strategy:** The AI introduces a high-value tax concept (QSBS), demonstrating deep expertise and showing the founder a path to save hundreds of thousands on their exit.
+**This is the core "magic moment" of our platform**
+
+</div>
+
+| Step | Experience | Description |
+|:---:|:---|:---|
+| 1️⃣ | **📞 The Call** | A founder calls TaxMan at **+1 978 829 6264** (or **+1 978 TAX-MANG**) and speaks with our empathetic AI agent |
+| 2️⃣ | **📧 The Link** | The AI understands their intent to sell and sends a secure profile link to their email (via **Resend**) |
+| 3️⃣ | **🔗 The Sync** | The founder opens the link, clicks "Login with Amazon/TikTok," syncing their financial data with our backend |
+| 4️⃣ | **🤖 The Awareness** | Instantly, the AI acknowledges the data sync: *"I see the connection was successful. Pulling in your metrics now..."* |
+| 5️⃣ | **💰 The Valuation** | Using real data, the AI provides a broker-quality business valuation via the Empire Flippers API |
+| 6️⃣ | **✨ The Strategy** | The AI introduces QSBS tax strategy, showing the founder how to save hundreds of thousands on their exit |
 
 ## Tech Stack & Architecture
 
