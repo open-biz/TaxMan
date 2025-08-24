@@ -4,7 +4,8 @@ import { VoiceProvider } from "@humeai/voice-react";
 import Messages from "./Messages";
 import Controls from "./Controls";
 import StartCall from "./StartCall";
-import { ComponentRef, useRef } from "react";
+import ClientOnly from "./ClientOnly";
+import { ComponentRef, useRef, useState, useEffect } from "react";
 import { toast } from "sonner";
 
 export default function ClientComponent({
@@ -21,34 +22,36 @@ export default function ClientComponent({
   return (
     <div
       className={
-        "relative grow flex flex-col mx-auto w-full overflow-hidden h-[0px]"
+        "relative grow flex flex-col mx-auto w-full overflow-hidden h-full"
       }
     >
-      <VoiceProvider
-        onMessage={() => {
-          if (timeout.current) {
-            window.clearTimeout(timeout.current);
-          }
-
-          timeout.current = window.setTimeout(() => {
-            if (ref.current) {
-              const scrollHeight = ref.current.scrollHeight;
-
-              ref.current.scrollTo({
-                top: scrollHeight,
-                behavior: "smooth",
-              });
+      <ClientOnly>
+        <VoiceProvider
+          onMessage={() => {
+            if (timeout.current) {
+              window.clearTimeout(timeout.current);
             }
-          }, 200);
-        }}
-        onError={(error) => {
-          toast.error(error.message);
-        }}
-      >
-        <Messages ref={ref} />
-        <Controls />
-        <StartCall configId={configId} accessToken={accessToken} />
-      </VoiceProvider>
+
+            timeout.current = window.setTimeout(() => {
+              if (ref.current) {
+                const scrollHeight = ref.current.scrollHeight;
+
+                ref.current.scrollTo({
+                  top: scrollHeight,
+                  behavior: "smooth",
+                });
+              }
+            }, 200);
+          }}
+          onError={(error) => {
+            toast.error(error.message);
+          }}
+        >
+          <Messages ref={ref} />
+          <Controls />
+          <StartCall configId={configId} accessToken={accessToken} />
+        </VoiceProvider>
+      </ClientOnly>
     </div>
   );
 }

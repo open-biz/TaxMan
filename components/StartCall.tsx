@@ -3,9 +3,17 @@ import { AnimatePresence, motion } from "motion/react";
 import { Button } from "./ui/button";
 import { Phone } from "lucide-react";
 import { toast } from "sonner";
+import { useSessionVariables } from "@/utils/sessionVariables";
+import { useEffect, useState } from "react";
 
 export default function StartCall({ configId, accessToken }: { configId?: string, accessToken: string }) {
   const { status, connect } = useVoice();
+  const { getDefaultSessionSettings } = useSessionVariables();
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <AnimatePresence>
@@ -32,11 +40,11 @@ export default function StartCall({ configId, accessToken }: { configId?: string
               <Button
                 className={"z-50 flex items-center gap-1.5 rounded-full"}
                 onClick={() => {
+                  if (!isMounted) return;
                   connect({ 
                     auth: { type: "accessToken", value: accessToken },
-                    configId, 
-                    // additional options can be added here
-                    // like resumedChatGroupId and sessionSettings
+                    configId,
+                    sessionSettings: getDefaultSessionSettings()
                   })
                     .then(() => {})
                     .catch(() => {
